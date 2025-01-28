@@ -1,0 +1,14 @@
+.header {
+width: 100%;
+margin: 0px 200px 0 200px;
+max-width: 880px;
+padding-top: 45px;
+border-bottom: 1px solid #545454
+}
+
+.Header__logo {
+width: 173px;
+height: 33px;
+margin-bottom: 41px;
+}
+
