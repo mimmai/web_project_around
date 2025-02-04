@@ -1,3 +1,12 @@
-@import url("");
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  src: url("./Inter-Regular.woff2");
+}
 
-@import url("");
+@font-face {
+  font-family: "Inter";
+  font-weight: 900;
+  src: url("./Inter-Black.woff2");
+}
+
