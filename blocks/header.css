@@ -1,14 +1,40 @@
 .header {
+max-width: 320px;
 width: 100%;
-margin: 0px 200px 0 200px;
+height: 56px;
+border: 1px 0px 0px 0px;
+
+}
+
+.Header__logo {
+width: 126px;
+height: 24px;
+color: #FFFFFF;
+padding-top: 28px;
+margin-left: 27px;
+margin-bottom: 32px;
+background-image: url("../images/Line.png");
+background-repeat: no-repeat;
+}
+
+
+
+
+@media screen and (min-width: 1280px) {
+.header {
+width: 100%;
+padding-top: 45px 0;
+margin: 0 200px 0 200px;
 max-width: 880px;
-padding-top: 45px;
-border-bottom: 1px solid #545454
+border-bottom: 1px solid #545454;
+box-sizing: border-box;
 }
 
 .Header__logo {
 width: 173px;
 height: 33px;
+margin-top: 45px;
 margin-bottom: 41px;
 }
 
+}

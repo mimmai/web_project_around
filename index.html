@@ -19,15 +19,17 @@
     <div class="profile__content">
     <img class="profile__avatar" src="./images/Avatar.png" alt="imagen de perfil">
     <div class="profile__info">
-    <h1 class="profile__title">Jacques Cousteau</h1>
-    <button
-    aria-label="Edit profile"
-    class="profile__edit-button"
-    type="button"></button>
+      <div class="profile__title">Jacques Cousteau</div>
+      <button
+      aria-label="Edit profile"
+      class="profile__edit-button"
+      type="button"></button>
+    <p class="profile__Subtitle">Explorador</p>
   </div>
-  <p class="profile__Subtitle">Explorador</p>
+  <button class="profile__add-button"></button>
 </div>
-    <button class="profile__add-button"></button>
+
+
   </section>
   <section class="cards">
     <ul class="cards__list">
@@ -89,6 +91,32 @@
 <footer class="footer">
   <div class="footer__page-author">© 2021 Around The U.S.</div>
 </footer>
+<!-- popup en construccione-->
+ <div class="popup">
+ <div class="popup__content">
+  <button
+  aria-label="close popup"
+  class="popup__close"
+  type="button"
+  ></button>
+  <h3 class="popup__title">Editar Perfil</h3>
+  <form class="popup__form" id="edit-profile-form">
+    <input
+    class="popup__input popup__input_type_name"
+    name="name"
+    placeholder="nombre"
+    type="text"
+  />
+  <input
+  class="popup__input popup__input_type_description"
+  name="description"
+  placeholder="Sobre mi"
+  type="text">
+  <button class="button popup__button type="submit">Guardar</button>
+  </form>
+ </div>
+</div>
+ <!-- -->
 </div>
 </body>
 </html>
