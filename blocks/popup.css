@@ -15,5 +15,11 @@ position: fixed;
 z-index: 999;
  }
 
-
+ .popup__close-button {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 380px;
+  bottom: 860px;
+  }
 

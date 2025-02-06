@@ -59,15 +59,19 @@ text-align: center;
 width: 10px;
 height: 15px;
 background-image: url("../images/Edit-Button.png");
-  background-color: black;
-  background-repeat: no-repeat;
-  background-position: center;
+background-color: black;
+background-repeat: no-repeat;
+background-position: center;
+border: 1px solid #FFFFFF;
+position: absolute;
+margin-left: 230px;
+margin-bottom: 100px;
+cursor: pointer;
+}
+
+.profile__edit-button:hover {
   border: 1px solid #FFFFFF;
-  position: absolute;
-  margin-left: 230px;
-  margin-bottom: 100px;
-
-
+  opacity: 0,6;
 }
 
 .profile__Subtitle {
@@ -88,8 +92,13 @@ background-image: url("../images/Edit-Button.png");
   background-repeat: no-repeat;
   padding: 36px 19px 0 19px;
   margin-top: 20px;
+  cursor: pointer;
 }
 
+.profile__add-button:hover {
+  border: 2px solid #FFFFFF;
+  opacity: 0,6;
+}
 
 @media screen and (min-width: 1280px) {
 .content {
