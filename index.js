@@ -1,9 +1,9 @@
-const popUp = document.querySelector(".popup");
+const popUp = document.querySelector(".popup__container");
 const editButton = document.querySelector(".profile__edit-button");
-const closeButton = popUp.querySelector(".popup__close-button");
+const closeButton = document.querySelector(".popup__close-button");
 const formButton = document.querySelector(".form__button");
 const inputName = document.querySelector(".input-name");
-const inputDescription = document.getElementById(".input-description");
+const inputDescription = document.querySelector(".input-description");
 const nameTitle = document.querySelector(".profile__title");
 
 const nameSubtitle = document.querySelector(".profile__Subtitle");
@@ -11,11 +11,10 @@ const nameSubtitle = document.querySelector(".profile__Subtitle");
 
 editButton.addEventListener("click", function() {
   popUp.showModal();
-  console.log(popUp)
 });
 
 closeButton.addEventListener("click", function() {
-popUp.close();
+  popUp.close();
 });
 
 
