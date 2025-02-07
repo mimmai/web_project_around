@@ -1,28 +1,27 @@
 .cards {
-max-width: 282px;
-width: 100%;
-border-radius: 10px 10px 0px 0px;
+margin: auto;
 margin-top: 30px;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+gap: 15px;
 }
 
 .cards__list{
-width: 282px;
-height: 361px;
-border-radius: 10px 10px 0px 0px;
 list-style-type: none;
 margin: auto;
-margin-bottom: 20px;
-padding-left: 19px;
-padding-right: 19px;
+padding: 0;
 
 }
 
 .card {
   background-color: white;
-  width: 100%;
-  height: 100%;
+  width: 282px;
+  height: 361px;
   border-radius: 10px;
   overflow: hidden;
+  margin: auto;
 }
 
 .card__image {
@@ -59,7 +58,6 @@ align-self: baseline;
   background-image: url("../images/like-button.png");
   background-color: white;
   border: none;
-  margin-top: 45px;
 }
 
 .card__like-button:hover {
@@ -70,34 +68,16 @@ align-self: baseline;
   background-color: black;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 700px) {
 
 .cards {
-  padding-left: 200px;
   max-width: 880px;
-  gap: 17px 21px;
-  border-radius: 10px 10px 0px 0px;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-}
-
-.cards__list {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  width: 282px;
-  height: 361px;
-  border-radius: 10px 10px 0px 0px;
+  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
 
 }
 
-.card {
-  background-color: white;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 10px;
-}
 
 .card__image {
   width: 282px;
@@ -105,40 +85,5 @@ align-self: baseline;
 
 }
 
-.Card__description {
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-align-items: center;
-
-
-}
-
-.card__title {
-  padding: 0;
-  margin-left: 20px;
-  margin-right: 0;
-  /*width: 246px;*/
-  height: 23px;
-  color: black;
-  font-family: Inter;
-  font-size: 24px;
-  font-weight: 900;
-  line-height: 29.05px;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  text-overflow: ellipsis;
-
-
-}
-
-.card__like-button {
-  width: 21px;
-  height: 19px;
-  background-image: url("../images/like-button.png");
-  background-color: white;
-  border: none;
-
-}
 
 }

@@ -19,17 +19,17 @@
     <div class="profile__content">
     <img class="profile__avatar" src="./images/Avatar.png" alt="imagen de perfil">
     <div class="profile__info">
+      <div class="profile__title-container">
       <div class="profile__title">Jacques Cousteau</div>
       <button
       aria-label="Edit profile"
       class="profile__edit-button"
       type="button"></button>
+      </div>
     <p class="profile__Subtitle">Explorador</p>
-  </div>
+      </div>
   <button class="profile__add-button"></button>
 </div>
-
-
   </section>
   <section class="cards">
     <ul class="cards__list">
@@ -91,18 +91,18 @@
 <footer class="footer">
   <div class="footer__page-author">© 2021 Around The U.S.</div>
 </footer>
-<div class="popup">
+<div class="popup popup_opened">
   <div class="popup__close-button">
     <img src="./images/Close Icon.png" alt="Equis para cerrar ventana emergente del formulario">
   </div>
   <form class="popup__form form">
     <h2 class="form__title">Editar Perfil</h2>
-    <input class="form__input form__input-name" name="name"  type="text" placeholder="Nombre">
-    <input class="form__input form__input-description" name="description" type="text" placeholder="Acerca de mí">
+    <input class="form__input form__input-name" name="name"  type="text" placeholder="Nombre" id="input-name">
+    <input class="form__input form__input-description" name="description" type="text" placeholder="Acerca de mí" id="input-description">
     <input type="submit" class="form__button">Guardar</input>
   </form>
 </div>
-<!-- -->
 </div>
+<script src="index.js"></script>
 </body>
 </html>
