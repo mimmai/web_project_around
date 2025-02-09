@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 40px;
 }
 
 .profile__content{
@@ -86,10 +87,6 @@ cursor: pointer;
 @media screen and (min-width: 700px) {
 
 
-.profile {
-
-}
-
 .profile__content {
   display: flex;
   justify-content: space-between;
@@ -122,7 +119,7 @@ cursor: pointer;
   max-width: 300px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  margin-right: 75px;
 }
 
 

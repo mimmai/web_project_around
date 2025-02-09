@@ -50,6 +50,7 @@ line-height: 29px;
 text-align: left;
 padding: 0;
 align-self: baseline;
+margin-left: 7px;
 }
 
 .card__like-button {
@@ -58,6 +59,7 @@ align-self: baseline;
   background-image: url("../images/like-button.png");
   background-color: white;
   border: none;
+  margin-top: 47px;
 }
 
 .card__like-button:hover {
