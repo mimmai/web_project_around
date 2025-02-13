@@ -54,12 +54,12 @@ margin-left: 20px;
   margin-bottom: 20px;
   margin-left: 20px;
   margin: auto;
+  border-bottom: 1px solid #060606;
 }
 
 .form__input-description {
 width: 238px;
 height: 26px;
-border-bottom: 1px solid #000000;
 background-color: white;
 font-family: Inter;
 font-size: 14px;
@@ -69,6 +69,8 @@ text-align: left;
 margin-bottom: 20px;
 margin-left: 20px;
 margin: auto;
+border: none;
+border-bottom: 1px solid #060606;
 }
 
 .form__button {
@@ -121,9 +123,6 @@ text-align: center;
     border-bottom: 1px solid #000000;
     }
 
-    /*.form__input:focus {
-      outline: 0;
-    }*/
 
     .form__input-name {
       width: 358px;
@@ -147,6 +146,8 @@ text-align: center;
     font-weight: 400;
     line-height: 16.94px;
     color: #C4C4C4;
+    border: none;
+    border-bottom: 1px solid #060606;
 
 
     }
