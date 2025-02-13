@@ -31,7 +31,7 @@ padding: 0;
   border-radius: 10px 10px 0px 0px;
 }
 
-.Card__description {
+.card__description {
 width: 246px;
 height: 23px;
 display: flex;
