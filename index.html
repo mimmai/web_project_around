@@ -32,66 +32,23 @@
 </div>
   </section>
   <section class="cards">
-    <ul class="cards__list">
-      <li class="card">
-      <img class="card__image" src="./images/yosemite_1.jpg" alt="Valle de Yosemite landscape">
+    <div class="cards__list">
+      <template id="card-template">
+      <div class="card">
+      <img class="card__image" src="" alt="Valle de Yosemite landscape">
       <div class="card__description">
-        <h2 class="card__title">Valle de Yosemite</h2>
+        <h2 class="card__title"></h2>
         <button class="card__like-button" type="button"></button>
         </div>
-      </li>
-    </ul>
-    <ul class="cards__list">
-      <li class="card">
-        <img class="card__image" src="./images/LagoLuise_2.png" alt="Lago Louise landscape">
-        <div class="card__description">
-          <h2 class="card__title">Lago Louise</h2>
-          <button class="card__like-button" type="button"></button>
-          </div>
-      </li>
-    </ul>
-    <ul class="cards__list">
-      <li class="card">
-        <img class="card__image" src="./images/MontañaCalva_3.png" alt="Montañas Calvas landscape">
-        <div class="card__description">
-          <h2 class="card__title">Montañas Calvas</h2>
-          <button class="card__like-button" type="button"></button>
-          </div>
-      </li>
-    </ul>
-    <ul class="cards__list">
-      <li class="card">
-        <img class="card__image" src="./images/Latemar_4.png" alt="Latemar landscape">
-        <div class="card__description">
-          <h2 class="card__title">Latemar</h2>
-          <button class="card__like-button" type="button"></button>
-          </div>
-      </li>
-    </ul>
-    <ul class="cards__list">
-      <li class="card">
-        <img class="card__image" src="./images/vanois_5.png" alt="Vanois National... landscape">
-        <div class="card__description">
-          <h2 class="card__title">Vanois National...</h2>
-          <button class="card__like-button" type="button"></button>
-          </div>
-      </li>
-    </ul>
-    <ul class="cards__list">
-      <li class="card">
-        <img class="card__image" src="./images/LagoBraies_6.png" alt="Lago di Braies landscape">
-        <div class="card__description">
-          <h2 class="card__title">Lago di Braies</h2>
-          <button class="card__like-button" type="button"></button>
-          </div>
-      </li>
-    </ul>
+      </div>
+    </template>
+  </div>
   </section>
 </main>
 <footer class="footer">
   <div class="footer__page-author">© 2021 Around The U.S.</div>
 </footer>
-<dialog class="popup">
+<dialog class="popup" id="popup-profile">
   <div class="popup__container">
   <div class="popup__close-button">
     <img src="./images/Close Icon.png" alt="Equis para cerrar ventana emergente del formulario">
@@ -104,6 +61,21 @@
   </form>
 </div>
 </dialog>
+<!--popup add new places
+<dialog class="popup popup__place-form" id="popup-places">
+  <div class="popup__container">
+  <div class="popup__close-button" id="popup-close-place-button">
+    <img src="./images/Close Icon.png" alt="Equis para cerrar ventana emergente del formulario">
+  </div>
+  <form class="popup__form form">
+    <h2 class="form__title">Nuevo Lugar</h2>
+    <input class="form__input form__input-name" name="name"  type="text" placeholder="Título" id="input-title">
+    <input class="form__input form__input-description" name="description" type="text" placeholder="Enlace a la imagen" id="input-image">
+    <input type="submit" class="form__button">
+  </form>
+</div>
+</dialog>
+ -->
 </div>
 <script src="./scripts/index.js"></script>
 </body>
