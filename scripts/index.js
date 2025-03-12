@@ -7,10 +7,15 @@ const inputDescription = document.querySelector(".form__input-description");
 const nameTitle = document.querySelector(".profile__title");
 const nameSubtitle = document.querySelector(".profile__Subtitle");
 const form = document.querySelector(".form");
+
 //variables popup new places
+
 const addButton = document.querySelector(".profile__add-button");
 const popupNewPlace = document.querySelector("#popup-places");
 const closePlaceFormButton = document.querySelector("#popup-close-place-button");
+
+//variables del Template
+
 const cardTemplate = document.querySelector("#card-template");
 const cardList = document.querySelector(".cards__list");
 
@@ -45,13 +50,15 @@ const initialCards = [
 initialCards.forEach((card) => {
 const newCard = cardTemplate.content.querySelector(".card").cloneNode(true);
 const imageCard = newCard.querySelector(".card__image")
-const descriptionCard = newCard.querySelector(".card__description")
+const descriptionCard = newCard.querySelector(".card__title")
 
 imageCard.src = card.link
 descriptionCard.textContent = card.name
 
 cardList.prepend(newCard)
 });
+
+//FUNCIONES DEL FORMULARIO-PERFIL
 
 function handleOpenPopup() {
 popup.classList.add("popup_opened");
@@ -61,7 +68,6 @@ function handleClosePopup() {
   popup.classList.remove("popup_opened");
   }
 
-//editButton.addEventListener("click", handleOpenPopup);
 
 editButton.addEventListener("click", function() {
   handleOpenPopup()
@@ -73,21 +79,23 @@ handleClosePopup()
 
 //FUNCION NEW PLACES
 
-//function handleOpenPopup() {
- // popupNewPlace.classList.add("popup_opened");
-//  }
+function handleOpenPopupPlaces() {
+  popupNewPlace.classList.add("popup_opened");
+  }
 
-  //function handleClosePopup() {
- // popupNewPlace.classList.remove("popup_opened");
-   // }
+  function handleClosePopupPlaces() {
+  popupNewPlace.classList.remove("popup_opened");
+  }
 
-//addButton.addEventListener("click", function() {
-  //popupNewPlace.classList.add("popup_opened")
-//});
+addButton.addEventListener("click", function() {
+  handleOpenPopupPlaces()
+});
 
-//closePlaceFormButton.addEventListener("click", function() {
-  //handleClosePopup()
-//})
+closePlaceFormButton.addEventListener("click", function() {
+  handleClosePopupPlaces()
+});
+
+//FUNCION DE CAMBIO DE DATOS EN POPUP PROFILE
 
 form.addEventListener("submit", function (evt) {
   evt.preventDefault()
