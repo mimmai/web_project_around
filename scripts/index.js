@@ -49,14 +49,28 @@ const initialCards = [
 //VARIABLES DE POPUP IMAGEN COMPLETA
 const popupViewImage = document.querySelector("#popup-view-image");
 const fullSizeImage = document.querySelector(".popup__full-size-image");
+const closeImageButton = document.querySelector("#close-image-button")
 
+function openImagePopup(name, link) {
+  popupViewImage.classList.add("popup_opened");
+  fullSizeImage.src = link
+  fullSizeImage.name = name
+}
 
-initialCards.forEach((card) => {
-const newCard = cardTemplate.content.querySelector(".card").cloneNode(true);
+closeImageButton.addEventListener("click", function() {
+  popupViewImage.classList.remove("popup_opened")
+  });
+
+function createCard(card) {
+  const newCard = cardTemplate.content.querySelector(".card").cloneNode(true);
 const imageCard = newCard.querySelector(".card__image")
 const descriptionCard = newCard.querySelector(".card__title")
 const likeButton = newCard.querySelector(".card__like-button");
 const trashButton = newCard.querySelector(".card__trash-button");
+
+imageCard.addEventListener("click", function() {
+openImagePopup(card.name, card.link)
+})
 
 imageCard.src = card.link
 descriptionCard.textContent = card.name
@@ -71,7 +85,14 @@ likeButton.addEventListener("click", function (evt) {
 
 trashButton.addEventListener("click", () => {
   newCard.remove();
-})
+});
+
+}
+
+
+initialCards.forEach((card) => {
+
+createCard(card)
 
 });
 
@@ -127,6 +148,19 @@ form.addEventListener("submit", function (evt) {
   popup.classList.remove("popup_opened");
 });
 
-//POPUP IMAGEN EN TAMAÑO COMPLETO
+//FORMULARIO PARA AGREGAR TARJETAS
+
+const addNewCardForm = document.getElementById("form-place")
+
+addNewCardForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+
+  const cardName = document.querySelector("#input-title").value
+  const urlNewCard = document.querySelector("#input-image").value
+  console.log(urlNewCard);
+
+  createCard({name: cardName, link: urlNewCard})
+});
+
 
 

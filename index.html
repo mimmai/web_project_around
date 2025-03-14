@@ -67,20 +67,20 @@
   <div class="popup__close-button" id="popup-close-place-button">
     <img src="./images/Close Icon.png" alt="Equis para cerrar ventana emergente del formulario">
   </div>
-  <form class="popup__form form">
+  <form class="popup__form form" id="form-place">
     <h2 class="form__title">Nuevo Lugar</h2>
     <input class="form__input form__input-name" name="name"  type="text" placeholder="Título" id="input-title">
     <input class="form__input form__input-description" name="description" type="text" placeholder="Enlace a la imagen" id="input-image">
-    <input type="submit" class="form__button">
+    <button type="submit" class="form__button" id="form-place-button">enviar</button>
   </form>
 </div>
 </dialog>
-<dialog class="popup" id="popup-view-image">
+<dialog class="popup popup__image"  id="popup-view-image">
   <div class="popup__container">
-  <div class="popup__close-button">
+  <div class="popup__close-button" id="close-image-button">
     <img src="./images/Close Icon.png" alt="Equis para cerrar ventana emergente del formulario">
-  <img class="popup__full-size-image" src="" alt="Imagen entamaño completo">
   </div>
+  <img class="popup__full-size-image" src="" alt="Imagen entamaño completo">
 </div>
 </dialog>
 </div>
