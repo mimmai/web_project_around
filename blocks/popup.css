@@ -26,4 +26,8 @@ position: relative;
   right: 0;
   }
 
-
+.popup__full-size-image {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 8px;
+}

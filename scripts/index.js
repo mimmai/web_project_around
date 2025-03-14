@@ -46,17 +46,35 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
   }
 ];
+//VARIABLES DE POPUP IMAGEN COMPLETA
+const popupViewImage = document.querySelector("#popup-view-image");
+const fullSizeImage = document.querySelector(".popup__full-size-image");
+
 
 initialCards.forEach((card) => {
 const newCard = cardTemplate.content.querySelector(".card").cloneNode(true);
 const imageCard = newCard.querySelector(".card__image")
 const descriptionCard = newCard.querySelector(".card__title")
+const likeButton = newCard.querySelector(".card__like-button");
+const trashButton = newCard.querySelector(".card__trash-button");
 
 imageCard.src = card.link
 descriptionCard.textContent = card.name
 
 cardList.prepend(newCard)
+
+likeButton.addEventListener("click", function (evt) {
+
+  evt.target.classList.toggle("card__like-button-active");
+
 });
+
+trashButton.addEventListener("click", () => {
+  newCard.remove();
+})
+
+});
+
 
 //FUNCIONES DEL FORMULARIO-PERFIL
 
@@ -109,9 +127,6 @@ form.addEventListener("submit", function (evt) {
   popup.classList.remove("popup_opened");
 });
 
-
-
-
-
+//POPUP IMAGEN EN TAMAÑO COMPLETO
 
 
