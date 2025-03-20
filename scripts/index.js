@@ -50,11 +50,13 @@ const initialCards = [
 const popupViewImage = document.querySelector("#popup-view-image");
 const fullSizeImage = document.querySelector(".popup__full-size-image");
 const closeImageButton = document.querySelector("#close-image-button")
+const titleFullSizeImage = document.querySelector(".popup__title-view-image")
 
 function openImagePopup(name, link) {
   popupViewImage.classList.add("popup_opened");
   fullSizeImage.src = link
   fullSizeImage.name = name
+  titleFullSizeImage.textContent = name
 }
 
 closeImageButton.addEventListener("click", function() {
@@ -68,8 +70,10 @@ const descriptionCard = newCard.querySelector(".card__title")
 const likeButton = newCard.querySelector(".card__like-button");
 const trashButton = newCard.querySelector(".card__trash-button");
 
+imageCard.alt = card.name
+
 imageCard.addEventListener("click", function() {
-openImagePopup(card.name, card.link)
+openImagePopup(card.name, card.link);
 })
 
 imageCard.src = card.link
@@ -134,6 +138,9 @@ closePlaceFormButton.addEventListener("click", function() {
   handleClosePopupPlaces()
 });
 
+
+
+
 //FUNCION DE CAMBIO DE DATOS EN POPUP PROFILE
 
 form.addEventListener("submit", function (evt) {
@@ -160,6 +167,9 @@ addNewCardForm.addEventListener("submit", (evt) => {
   console.log(urlNewCard);
 
   createCard({name: cardName, link: urlNewCard})
+
+  popupNewPlace.classList.remove("popup_opened");
+
 });
 
 

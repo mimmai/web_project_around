@@ -32,3 +32,13 @@ position: relative;
   max-height: 80%;
   border-radius: 8px;
 }
+
+/* agregado para la title-tarjeta probando*/
+.popup__title-view-image {
+  color: white;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  left: 20px;
+}
