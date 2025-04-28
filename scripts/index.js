@@ -1,3 +1,5 @@
+import {resetValidations, validationSettings} from "./validate.js";
+
 const popup = document.querySelector(".popup");
 const editButton = document.querySelector(".profile__edit-button");
 const closeButton = document.querySelector(".popup__close-button");
@@ -117,7 +119,9 @@ editButton.addEventListener("click", function() {
 });
 
 closeButton.addEventListener("click", function() {
-handleClosePopup()
+handleClosePopup();
+const profileForm = document.querySelector("#form-profile");
+resetValidations(profileForm, validationSettings);
 });
 
 //FUNCION NEW PLACES
@@ -135,7 +139,9 @@ addButton.addEventListener("click", function() {
 });
 
 closePlaceFormButton.addEventListener("click", function() {
-  handleClosePopupPlaces()
+  handleClosePopupPlaces();
+  const placeForm = document.querySelector("#form-place");
+  resetValidations(placeForm, validationSettings);
 });
 
 
@@ -171,6 +177,23 @@ addNewCardForm.addEventListener("submit", (evt) => {
   popupNewPlace.classList.remove("popup_opened");
 
 });
+
+popup.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains("popup")) {
+    popup.classList.remove('popup_opened');
+    resetValidations(validationSettings);
+  }
+});
+
+popupNewPlace.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains("popup")) {
+    handleClosePopupPlaces();
+    resetValidations(validationSettings);
+  }
+});
+
+
+
 
 
 

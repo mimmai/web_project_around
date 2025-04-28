@@ -97,6 +97,25 @@ text-align: center;
   opacity: 0,6;
 }
 
+.form__button_disabled {
+  opacity: 0.5;
+  cursor: normal;
+}
+
+.form__input-type-error {
+  border-bottom-color: red;
+}
+
+.form__error {
+  font-size: 14px;
+  color:red;
+  margin-top: 16px;
+  display: none;
+}
+
+.form__error_visible {
+display: block;
+}
 
 @media screen and (min-width: 700px) {
   .form {
@@ -159,5 +178,4 @@ text-align: center;
     margin: 36px 36px 20px 36px;
     border: 1px solid #C4C4C4;
     }
-
-}
+  }
