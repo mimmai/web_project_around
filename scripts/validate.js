@@ -80,7 +80,6 @@ export function resetValidations(settings) {
 
     inputList.forEach((inputElement) => {
       hideInputError(formElement, inputElement, settings);
-      inputElement.value = ""; // <<< Limpia manualmente los valores
     });
 
     if (buttonElement) {
@@ -90,4 +89,7 @@ export function resetValidations(settings) {
   });
 }
 
+
 enableValidation(validationSettings);
+
+

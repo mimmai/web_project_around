@@ -121,6 +121,7 @@ editButton.addEventListener("click", function() {
 closeButton.addEventListener("click", function() {
 handleClosePopup();
 const profileForm = document.querySelector("#form-profile");
+profileForm.reset();
 resetValidations(profileForm, validationSettings);
 });
 
@@ -141,6 +142,7 @@ addButton.addEventListener("click", function() {
 closePlaceFormButton.addEventListener("click", function() {
   handleClosePopupPlaces();
   const placeForm = document.querySelector("#form-place");
+  placeForm.reset();
   resetValidations(placeForm, validationSettings);
 });
 
@@ -158,6 +160,9 @@ form.addEventListener("submit", function (evt) {
   nameTitle.textContent = nameValue
   nameSubtitle.textContent = descriptionValue
 
+  //agregado para despues de enviar se resetee el formulario
+  form.reset();
+  resetValidations(form, validationSettings);
   popup.classList.remove("popup_opened");
 });
 
@@ -176,6 +181,8 @@ addNewCardForm.addEventListener("submit", (evt) => {
 
   popupNewPlace.classList.remove("popup_opened");
 
+  addNewCardForm.reset();
+  resetValidations(addNewCardForm, validationSettings);
 });
 
 popup.addEventListener("click", (evt) => {
@@ -192,7 +199,26 @@ popupNewPlace.addEventListener("click", (evt) => {
   }
 });
 
+//cierra la tecla escape
+document.addEventListener("keydown", function(evt) {
+  if (evt.key === "Escape") {
+    if (popup.classList.contains("popup_opened")) {
+      popup.classList.remove("popup_opened");
+      form.reset();
+      resetValidations(form, validationSettings);
+    }
 
+    if (popupNewPlace.classList.contains("popup_opened")) {
+      popupNewPlace.classList.remove("popup_opened");
+      addNewCardForm.reset();
+      resetValidations(addNewCardForm, validationSettings);
+    }
+
+    if (popupViewImage.classList.contains("popup_opened")) {
+      popupViewImage.classList.remove("popup_opened");
+    }
+  }
+});
 
 
 
