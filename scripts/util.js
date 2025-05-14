@@ -1,3 +1,6 @@
+import { resetValidations, validationSettings } from "./validate.js";
+import { createCard } from "./index.js";
+
 const popup = document.querySelector(".popup");
 const editButton = document.querySelector(".profile__edit-button");
 const closeButton = document.querySelector(".popup__close-button");
@@ -132,6 +135,53 @@ document.addEventListener("keydown", function(evt) {
     }
   }
 });
+
+// esta fx abre el modal de la imagen completa
+
+export function openImagePopup(name, link) {
+  popupViewImage.classList.add("popup_opened");
+  fullSizeImage.src = link;
+  fullSizeImage.alt = name;
+  titleFullSizeImage.textContent = name;
+}
+
+closeImageButton.addEventListener("click", function () {
+  popupViewImage.classList.remove("popup_opened");
+});
+
+//FORMULARIO PARA AGREGAR TARJETAS
+
+const addNewCardForm = document.getElementById("form-place");
+
+addNewCardForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+
+  const cardName = document.querySelector("#input-title").value;
+  const urlNewCard = document.querySelector("#input-image").value;
+  console.log(urlNewCard);
+
+  createCard({ name: cardName, link: urlNewCard });
+
+  popupNewPlace.classList.remove("popup_opened");
+
+  addNewCardForm.reset();
+  resetValidations(addNewCardForm, validationSettings);
+});
+
+popup.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains("popup")) {
+    popup.classList.remove("popup_opened");
+    resetValidations(validationSettings);
+  }
+});
+
+popupNewPlace.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains("popup")) {
+    handleClosePopupPlaces();
+    resetValidations(validationSettings);
+  }
+});
+
 
 
 export {
