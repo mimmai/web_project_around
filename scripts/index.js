@@ -1,29 +1,22 @@
-import { resetValidations, validationSettings } from "./validate.js";
+import { validationSettings } from "./validate.js";
 import formValidator from "./FormValidator.js"
 import Card from "./Card.js";
 import { openImagePopup } from "./util.js"
 
 import {
-  popup,
-  editButton,
-  closeButton,
-  formButton,
-  inputName,
-  inputDescription,
-  nameTitle,
-  nameSubtitle,
-  form,
-  addButton,
-  popupNewPlace,
-  closePlaceFormButton,
-  cardTemplate,
   cardList,
-  popupViewImage,
-  fullSizeImage,
-  closeImageButton,
-  titleFullSizeImage,
   initialCards,
 } from "./util.js";
+
+
+const profileForm = document.querySelector("#form-profile");
+const placeForm = document.querySelector("#form-place");
+
+const profileFormValidator = new formValidator(validationSettings, profileForm);
+profileFormValidator.enableValidation();
+
+const placeFormValidator = new formValidator(validationSettings, placeForm);
+placeFormValidator.enableValidation();
 
 
 export function createCard(card) {
@@ -34,8 +27,12 @@ export function createCard(card) {
 
 }
 
+//initialCards.forEach((card) => {
+// const newCard = new Card(card.name, card.link, "#card-template", openImagePopup).getView();
+//  createCard(card);
+//});
+
 initialCards.forEach((card) => {
-  const newCard = new Card(card.name, card.link, "#card-template", openImagePopup).getView();
   createCard(card);
 });
 

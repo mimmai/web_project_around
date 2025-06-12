@@ -74,8 +74,9 @@ closeButton.addEventListener("click", function() {
 handleClosePopup();
 const profileForm = document.querySelector("#form-profile");
 profileForm.reset();
-resetValidations(profileForm, validationSettings);
+resetValidations(validationSettings);
 });
+//profileForm
 
 //FUNCION NEW PLACES
 
@@ -95,8 +96,9 @@ closePlaceFormButton.addEventListener("click", function() {
   handleClosePopupPlaces();
   const placeForm = document.querySelector("#form-place");
   placeForm.reset();
-  resetValidations(placeForm, validationSettings);
+  resetValidations(validationSettings);
 });
+//placeForm
 
 //FUNCION DE CAMBIO DE DATOS EN POPUP PROFILE
 
@@ -111,9 +113,9 @@ form.addEventListener("submit", function (evt) {
 
   //agregado para despues de enviar se resetee el formulario
   form.reset();
-  resetValidations(form, validationSettings);
+  resetValidations(validationSettings);
   popup.classList.remove("popup_opened");
-});
+}); //form
 
 //cierra la tecla escape
 document.addEventListener("keydown", function(evt) {
@@ -121,14 +123,14 @@ document.addEventListener("keydown", function(evt) {
     if (popup.classList.contains("popup_opened")) {
       popup.classList.remove("popup_opened");
       form.reset();
-      resetValidations(form, validationSettings);
-    }
+      resetValidations(validationSettings);
+    } //form
 
     if (popupNewPlace.classList.contains("popup_opened")) {
       popupNewPlace.classList.remove("popup_opened");
       addNewCardForm.reset();
-      resetValidations(addNewCardForm, validationSettings);
-    }
+      resetValidations(validationSettings);
+    }  //addNewCardForm
 
     if (popupViewImage.classList.contains("popup_opened")) {
       popupViewImage.classList.remove("popup_opened");
@@ -165,8 +167,8 @@ addNewCardForm.addEventListener("submit", (evt) => {
   popupNewPlace.classList.remove("popup_opened");
 
   addNewCardForm.reset();
-  resetValidations(addNewCardForm, validationSettings);
-});
+  resetValidations(validationSettings);
+}); //addNewCardForm,
 
 popup.addEventListener("click", (evt) => {
   if (evt.target.classList.contains("popup")) {
@@ -185,23 +187,6 @@ popupNewPlace.addEventListener("click", (evt) => {
 
 
 export {
-  popup,
-  editButton,
-  closeButton,
-  formButton,
-  inputName,
-  inputDescription,
-  nameTitle,
-  nameSubtitle,
-  form,
-  addButton,
-  popupNewPlace,
-  closePlaceFormButton,
-  cardTemplate,
   cardList,
-  popupViewImage,
-  fullSizeImage,
-  closeImageButton,
-  titleFullSizeImage,
   initialCards,
 }
