@@ -27,11 +27,6 @@ export function createCard(card) {
 
 }
 
-//initialCards.forEach((card) => {
-// const newCard = new Card(card.name, card.link, "#card-template", openImagePopup).getView();
-//  createCard(card);
-//});
-
 initialCards.forEach((card) => {
   createCard(card);
 });
