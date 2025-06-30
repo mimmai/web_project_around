@@ -11,7 +11,7 @@ open(name, link){
 super.open();
 this.imageElement.src = link;
 this.imageElement.alt = name;
-this.titleElement.textContent = this.name;
+this.titleElement.textContent = name;
 }
 
 setEventListeners(){

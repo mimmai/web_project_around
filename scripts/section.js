@@ -1,8 +1,8 @@
 //ESTA CLASE REEMPLAZA LA FX DE LAS CARTAS
 export default class Section {
-  constructor(items, render, containerSelector){
+  constructor({ items, renderer }, containerSelector) {
     this._items = items;
-    this._renderer = render;
+    this._renderer = renderer;
     this._container = document.querySelector(containerSelector);
   }
 
@@ -17,4 +17,5 @@ addItem(item) {
   const element = this._renderer(item);
   this._container.append(element);
 };
+
 }

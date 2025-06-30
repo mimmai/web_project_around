@@ -1,5 +1,6 @@
 import { resetValidations, validationSettings } from "./validate.js";
 import { createCard } from "./index.js";
+import PopupWithImage from "./PopupwithImage.js";
 
 const popup = document.querySelector(".popup");
 const editButton = document.querySelector(".profile__edit-button");
@@ -141,11 +142,13 @@ document.addEventListener("keydown", function(evt) {
 // esta fx abre el modal de la imagen completa
 
 export function openImagePopup(name, link) {
-  popupViewImage.classList.add("popup_opened");
+  PopupWithImage.open(name, link);
+}
+  /* popupViewImage.classList.add("popup_opened");
   fullSizeImage.src = link;
   fullSizeImage.alt = name;
-  titleFullSizeImage.textContent = name;
-}
+  titleFullSizeImage.textContent = name;*/
+
 
 closeImageButton.addEventListener("click", function () {
   popupViewImage.classList.remove("popup_opened");
@@ -162,7 +165,8 @@ addNewCardForm.addEventListener("submit", (evt) => {
   const urlNewCard = document.querySelector("#input-image").value;
   console.log(urlNewCard);
 
-  createCard({ name: cardName, link: urlNewCard });
+  const cardElement = createCard({ name: cardName, link: urlNewCard });
+  cardList.prepend(cardElement);
 
   popupNewPlace.classList.remove("popup_opened");
 
@@ -189,4 +193,7 @@ popupNewPlace.addEventListener("click", (evt) => {
 export {
   cardList,
   initialCards,
+  nameTitle,
+  nameSubtitle,
+  editButton
 }
