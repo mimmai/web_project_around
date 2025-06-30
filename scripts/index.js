@@ -1,12 +1,12 @@
 import { validationSettings } from "./validate.js";
-import formValidator from "./FormValidator.js"
+import formValidator from "./FormValidator.js";
 import Card from "./Card.js";
-import { openImagePopup } from "./util.js"
-
-import {
-  cardList,
-  initialCards,
-} from "./util.js";
+import { openImagePopup } from "./util.js";
+import { cardList, initialCards } from "./util.js";
+import Section from "./section.js";
+import Popup from "./Popup.js";
+import PopupWithImage from "./PopupwithImage.js";
+import PopupWithForm from "./PopupWithForm.js";
 
 
 const profileForm = document.querySelector("#form-profile");
@@ -31,3 +31,15 @@ initialCards.forEach((card) => {
   createCard(card);
 });
 
+//INSTANCIA DE SECTION PARA RENDERIZAR LAS CARDS
+const section = new Section({ items: initialCards, renderer: createCard }, ".card__list");
+
+section.renderer();
+
+//instancia de PopupWithImage
+const PopupWithImage = new PopupWithImage(popupViewImage);
+PopupWithImage.setEventListeners();
+
+//instancia de PopupWithForm
+const PopupWithForm = new PopupWithForm("#form-profile", )//aqui falta un valor
+PopupWithForm.setEventListeners();
