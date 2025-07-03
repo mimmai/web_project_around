@@ -103,7 +103,7 @@ closePlaceFormButton.addEventListener("click", function() {
 
 //FUNCION DE CAMBIO DE DATOS EN POPUP PROFILE
 
-form.addEventListener("submit", function (evt) {
+/*form.addEventListener("submit", function (evt) {
   evt.preventDefault()
 
   const nameValue = inputName.value
@@ -116,7 +116,7 @@ form.addEventListener("submit", function (evt) {
   form.reset();
   resetValidations(validationSettings);
   popup.classList.remove("popup_opened");
-}); //form
+}); //form */
 
 //cierra la tecla escape
 document.addEventListener("keydown", function(evt) {
@@ -195,5 +195,7 @@ export {
   initialCards,
   nameTitle,
   nameSubtitle,
-  editButton
+  editButton,
+  inputName,
+  inputDescription
 }

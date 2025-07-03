@@ -16,6 +16,7 @@ align-items: center;
 
 .popup__container {
 width: 600px;
+margin: 30px;
 position: relative;
 }
 
@@ -24,7 +25,8 @@ position: relative;
   width: 40px;
   height: 40px;
   position: absolute;
-  right: 0;
+  right: 5px;
+  bottom: 370px;
   }
 
 .popup__full-size-image {

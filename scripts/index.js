@@ -2,7 +2,7 @@ import { validationSettings } from "./validate.js";
 import formValidator from "./FormValidator.js";
 import Card from "./Card.js";
 //import { openImagePopup } from "./util.js";
-import { cardList, initialCards, nameTitle, nameSubtitle, editButton } from "./util.js";
+import { cardList, initialCards, nameTitle, nameSubtitle, editButton, inputName, inputDescription } from "./util.js";
 import Section from "./section.js";
 //import Popup from "./Popup.js";
 import PopupWithImage from "./PopupwithImage.js";
@@ -49,7 +49,7 @@ popupWithImage.setEventListeners();
 //Instancia de UserInfo
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
-  JobSelector: ".profile__Subtitle",
+  jobSelector: ".profile__Subtitle",
 });
 
 //instancia de PopupWithForm
@@ -65,13 +65,15 @@ const popupWithForm = new PopupWithForm("#popup-profile", (formData) => {
 
 popupWithForm.setEventListeners();
 
-
+//bloque maneja apertura del form.perfil y cambio de datos
 
 editButton.addEventListener("click",() => {
-  const user = userInfo.getUserInfo();
+ /* const user = userInfo.getUserInfo();
   inputName.value = user.name;
-  inputDescription.value = user.job;
-  profilePopup.open();
+  inputDescription.value = user.job;*/
+  profileForm.reset();
+  popupWithForm.open();
+  profileFormValidator.resetValidation();
 
 });
 
