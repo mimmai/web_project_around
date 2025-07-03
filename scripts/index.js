@@ -26,14 +26,8 @@ export function createCard(card) {
   });
   return newCard.getView();
 
-  //al lado del template estaba openimagepopup
-  //const cardElement = newCard.getView();
-  //cardList.prepend(cardElement); ELIMINAR ESTO LUEGO
 }
 
-/*initialCards.forEach((card) => {
-  createCard(card);
-}); eliminar este bloque por que la clase section ya renderiza las cards*/
 
 //INSTANCIA DE SECTION PARA RENDERIZAR LAS CARDS
 const section = new Section(
@@ -60,17 +54,11 @@ const popupWithForm = new PopupWithForm("#popup-profile", (formData) => {
   });
 });
 
-//nameTitle.textContent = formData.name;
- // nameSubtitle.textContent = formData.description;
-
 popupWithForm.setEventListeners();
 
 //bloque maneja apertura del form.perfil y cambio de datos
 
 editButton.addEventListener("click",() => {
- /* const user = userInfo.getUserInfo();
-  inputName.value = user.name;
-  inputDescription.value = user.job;*/
   profileForm.reset();
   popupWithForm.open();
   profileFormValidator.resetValidation();

@@ -58,18 +58,6 @@ const initialCards = [
 
 //FUNCIONES DEL FORMULARIO-PERFIL
 
-function handleOpenPopup() {
-popup.classList.add("popup_opened");
-}
-
-function handleClosePopup() {
-  popup.classList.remove("popup_opened");
-  }
-
-
-editButton.addEventListener("click", function() {
-  handleOpenPopup()
-});
 
 closeButton.addEventListener("click", function() {
 handleClosePopup();
@@ -99,24 +87,7 @@ closePlaceFormButton.addEventListener("click", function() {
   placeForm.reset();
   resetValidations(validationSettings);
 });
-//placeForm
 
-//FUNCION DE CAMBIO DE DATOS EN POPUP PROFILE
-
-/*form.addEventListener("submit", function (evt) {
-  evt.preventDefault()
-
-  const nameValue = inputName.value
-  const descriptionValue = inputDescription.value
-
-  nameTitle.textContent = nameValue
-  nameSubtitle.textContent = descriptionValue
-
-  //agregado para despues de enviar se resetee el formulario
-  form.reset();
-  resetValidations(validationSettings);
-  popup.classList.remove("popup_opened");
-}); //form */
 
 //cierra la tecla escape
 document.addEventListener("keydown", function(evt) {
@@ -144,11 +115,6 @@ document.addEventListener("keydown", function(evt) {
 export function openImagePopup(name, link) {
   PopupWithImage.open(name, link);
 }
-  /* popupViewImage.classList.add("popup_opened");
-  fullSizeImage.src = link;
-  fullSizeImage.alt = name;
-  titleFullSizeImage.textContent = name;*/
-
 
 closeImageButton.addEventListener("click", function () {
   popupViewImage.classList.remove("popup_opened");
