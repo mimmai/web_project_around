@@ -8,6 +8,7 @@ import Section from "./section.js";
 import PopupWithImage from "./PopupwithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
+import Api from "./Api.js";
 
 const profileForm = document.querySelector("#form-profile");
 const placeForm = document.querySelector("#form-place");
@@ -28,6 +29,16 @@ export function createCard(card) {
 
 }
 
+
+//instancia de la api
+
+const api = new Api({
+    baseURL: "https://around-api.es.tripleten-services.com/v1",
+    headers: {
+      authorization: "b406e982-fedd-40fe-9dc3-70e4f6a9d489",
+      "Content-Type": "application/json"
+    }
+  });
 
 //INSTANCIA DE SECTION PARA RENDERIZAR LAS CARDS
 const section = new Section(
