@@ -23,8 +23,8 @@ placeFormValidator.enableValidation();
 export function createCard(card) {
   //instanciar una clase
   const newCard = new Card(card.name, card.link, "#card-template", (name, link) => {
-    popupWithImage.open(name, link);
-  });
+    popupWithImage.open(name, link); },
+    card._id ); //SE AGREGO ESTO DESPUES
   return newCard.getView();
 
 }
@@ -32,19 +32,41 @@ export function createCard(card) {
 
 //instancia de la api
 
-const api = new Api({
-    baseURL: "https://around-api.es.tripleten-services.com/v1",
+export const api = new Api({
+    baseURL: "https://around-api.es.tripleten-services.com/v1/",
     headers: {
-      authorization: "b406e982-fedd-40fe-9dc3-70e4f6a9d489",
+      authorization: "b7ca8585-8917-4aa6-8098-84ae835405ca",
       "Content-Type": "application/json"
     }
   });
 
 //INSTANCIA DE SECTION PARA RENDERIZAR LAS CARDS
 const section = new Section(
-  { items: initialCards, renderer: createCard }, ".cards__list");
+  { items: [],
+    renderer: (cardData) => {
+    return createCard(cardData);
+  }
+  },
+  ".cards__list");
+// asi estaba antes esta linea { items: initialCards, renderer: createCard }, cardlistblablabla
 
-section.renderer();
+
+//esto se supone que es para cargar los datos
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+.then(([userData, cards]) => {
+  userInfo.setUserInfo({
+    name: userData.name,
+    job: userData.about,
+    avatar: userData.avatar
+  })
+  section._items = cards.reverse();
+  section.renderer();
+  })
+  .catch((err) => console.error("Error al cargar datos:", err));
+
+
+  //section._items = cards;
+ // section.renderer() estas dos lineas van en carList.renderItems por que hace la funcion de los dos
 
 //instancia de PopupWithImage
 const popupWithImage = new PopupWithImage("#popup-view-image");
@@ -55,15 +77,29 @@ popupWithImage.setEventListeners();
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
   jobSelector: ".profile__Subtitle",
+  avatarSelector: ".profile__avatar"
 });
 
 //instancia de PopupWithForm
 const popupWithForm = new PopupWithForm("#popup-profile", (formData) => {
-  userInfo.setUserInfo({
+  api.editUser({
+    name: formData.name,
+    about: formData.description
+  })
+  .then((updateData) => {
+    userInfo.setUserInfo ({
+    name: updateData.name,
+    job: updateData.about,
+    avatar: updateData.avatar
+    })
+  })
+  .catch(console.error)
+});
+
+/* userInfo.setUserInfo({
   name: formData.name,
   job: formData.description
-  });
-});
+  }); esto estaba antes en la instancia del popupWithForm*/
 
 popupWithForm.setEventListeners();
 

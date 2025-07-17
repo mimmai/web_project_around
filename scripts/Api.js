@@ -1,7 +1,7 @@
 
 
 export default class Api {
-  constructor(baseURL, headers){
+  constructor({ baseURL, headers }){
     this.baseURL = baseURL;
     this.headers = headers;
   }
@@ -17,7 +17,7 @@ export default class Api {
     })
   }
 
-  getInicialCards() {
+  getInitialCards() {
     return fetch(`${this.baseURL}/cards`, {
       headers: this.headers,
     }) .then((res) => {

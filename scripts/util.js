@@ -1,6 +1,7 @@
 import { resetValidations, validationSettings } from "./validate.js";
 import { createCard } from "./index.js";
 import PopupWithImage from "./PopupwithImage.js";
+import { api } from "./index.js";
 
 const popup = document.querySelector(".popup");
 const editButton = document.querySelector(".profile__edit-button");
@@ -131,14 +132,18 @@ addNewCardForm.addEventListener("submit", (evt) => {
   const urlNewCard = document.querySelector("#input-image").value;
   console.log(urlNewCard);
 
-  const cardElement = createCard({ name: cardName, link: urlNewCard });
+  api.createCard({ name: cardName, link: urlNewCard })
+  .then((cardFromApi) => {
+  const cardElement = createCard(cardFromApi);
   cardList.prepend(cardElement);
-
   popupNewPlace.classList.remove("popup_opened");
-
   addNewCardForm.reset();
   resetValidations(validationSettings);
-}); //addNewCardForm,
+})
+  .catch((err) => console.error(err))
+});
+
+//({ name: cardName, link: urlNewCard }); esto estaba en createcard const cardElement
 
 popup.addEventListener("click", (evt) => {
   if (evt.target.classList.contains("popup")) {
