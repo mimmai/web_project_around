@@ -92,6 +92,30 @@
   <p class="popup__title-view-image"></p>
 </div>
 </dialog>
+<dialog class="popup popup__avatar" id="popup-avatar">
+  <div class="popup__container">
+  <div class="popup__close-button popup__close-avatar">
+    <img src="./images/Close_Icon.png" alt="Equis para cerrar ventana emergente del formulario">
+  </div>
+  <form class="popup__form form form__avatar" id="form-avatar">
+    <div class="form__title form__title-avatar">Cambiar foto de perfil</div>
+    <input class="form__input form__input-description form__input-avatar form__input-type-error" name="avatar-image" placeholder="Enlace a tu nueva foto de perfil" id="input-image" required type="url">
+    <span class="form__error" id="input-image-error"></span>
+    <button type="submit" class="form__button form__button-avatar form__button_disabled" id="form-avatar-button">Guardar</button>
+  </form>
+</div>
+</dialog>
+<dialog class="popup popup__delete-confirm" id="popup-delete-confirm">
+  <div class="popup__container">
+  <div class="popup__close-button popup__close-delete-confirm">
+    <img src="./images/Close_Icon.png" alt="Equis para cerrar ventana emergente del formulario">
+  </div>
+  <form class="popup__form form form__delete-confirm" id="form-delete-confirm">
+    <div class="form__title form__title-delete-confirm">¿Estás seguro?</div>
+    <button type="submit" class="form__button form__button_disabled" id="form-avatar-button">Sí</button>
+  </form>
+</div>
+</dialog>
 </div>
 <script type="module" src="./scripts/index.js"></script>
 </body>

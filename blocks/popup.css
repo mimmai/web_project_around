@@ -44,3 +44,25 @@ position: relative;
   position: absolute;
   left: 20px;
 }
+
+.popup__avatar {
+  display: none;
+}
+/*en flex abre popup de foto-perfil*/
+
+.popup__delete-confirm {
+  display: none;
+}
+/*en flex abre popup de confirmacion delete*/
+
+.popup__close-delete-confirm {
+  position: absolute;
+  right: 15px;
+  bottom: 180px;
+}
+
+.popup__close-avatar {
+ position: absolute;
+  right: 15px;
+  bottom: 250px;
+}

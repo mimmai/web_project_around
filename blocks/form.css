@@ -125,6 +125,30 @@ margin: 0;
 margin-left: 17px;
 }
 
+.form__title-avatar{
+font-size: 24px;
+line-height: 100%;
+opacity: 1;
+}
+
+.form__avatar {
+height: 250px;
+}
+
+.form__input-avatar {
+margin: 0;
+margin-bottom: 30px;
+}
+
+.form__delete-confirm {
+height: 181px;
+border-radius: 10px;
+}
+
+.form__title-delete-confirm {
+  margin: auto;
+}
+
 @media screen and (min-width: 700px) {
   .form {
     background-color: white;
@@ -188,4 +212,34 @@ margin-left: 17px;
     .form__error_visible {
       margin-left: 30px;
       }
-  }
+
+      .form__title-avatar{
+      font-size: 24px;
+      line-height: 100%;
+      opacity: 1;
+      margin-right: 30px;
+      }
+
+      .form__avatar {
+      height: 260px;
+      }
+
+      .form__input-avatar {
+      margin: 0;
+      margin-bottom: 30px;
+      }
+
+      .form__button-avatar {
+      margin: 0;
+      }
+
+      .form__delete-confirm {
+      width: 430px;
+      height: 181px;
+      border-radius: 10px;
+      }
+
+      .form__title-delete-confirm {
+      margin: auto;
+      }
+      }
