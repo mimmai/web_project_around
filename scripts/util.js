@@ -2,6 +2,7 @@ import { resetValidations, validationSettings } from "./validate.js";
 import { createCard } from "./index.js";
 import PopupWithImage from "./PopupwithImage.js";
 import { api } from "./index.js";
+import Card from "./Card.js";
 
 const popup = document.querySelector(".popup");
 const editButton = document.querySelector(".profile__edit-button");
@@ -30,6 +31,12 @@ const fullSizeImage = document.querySelector(".popup__full-size-image");
 const closeImageButton = document.querySelector("#close-image-button")
 const titleFullSizeImage = document.querySelector(".popup__title-view-image")
 
+//variables popup delete confirmation
+//const popupDeleteConfirm = document.querySelector("#popup-delete-confirm");
+//const popupCloseDeleteConfirmButton = document.querySelector(".popup__close-delete-confirm")  //boton de la equis
+//const trashButton = document.querySelector(".card__trash-button");
+
+//respaldo de las initial cards
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -88,6 +95,24 @@ closePlaceFormButton.addEventListener("click", function() {
   placeForm.reset();
   resetValidations(validationSettings);
 });
+
+// FUNCTION MODAL CONFIRMATION DELETE
+
+/*function handleOpenPopupDeleteConfirm() {
+  popupDeleteConfirm.classList.add("popup_opened");
+  }
+
+  function handleClosePopupDeleteConfirm() {
+  popupDeleteConfirm.classList.remove("popup_opened");
+  }
+ //aqui va el boton de la papelera
+ // trashButton.addEventListener("click", function() {
+  //handleOpenPopupDeleteConfirm();
+//});
+
+  popupCloseDeleteConfirmButton.addEventListener("click", function() {
+  handleClosePopupDeleteConfirm();
+});*/
 
 
 //cierra la tecla escape

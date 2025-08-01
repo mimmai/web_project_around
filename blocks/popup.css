@@ -49,10 +49,10 @@ position: relative;
   display: none;
 }
 /*en flex abre popup de foto-perfil*/
-
-.popup__delete-confirm {
-  display: none;
+.popup__close-delete-confirm {
+  display: block;
 }
+
 /*en flex abre popup de confirmacion delete*/
 
 .popup__close-delete-confirm {

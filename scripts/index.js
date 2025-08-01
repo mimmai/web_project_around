@@ -9,25 +9,17 @@ import PopupWithImage from "./PopupwithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
 import Api from "./Api.js";
+import PopupWithConfirmation from "./PopupWithConfirmation.js";
 
 const profileForm = document.querySelector("#form-profile");
 const placeForm = document.querySelector("#form-place");
+
 
 const profileFormValidator = new formValidator(validationSettings, profileForm);
 profileFormValidator.enableValidation();
 
 const placeFormValidator = new formValidator(validationSettings, placeForm);
 placeFormValidator.enableValidation();
-
-
-export function createCard(card) {
-  //instanciar una clase
-  const newCard = new Card(card.name, card.link, "#card-template", (name, link) => {
-    popupWithImage.open(name, link); },
-    card._id ); //SE AGREGO ESTO DESPUES
-  return newCard.getView();
-
-}
 
 
 //instancia de la api
@@ -40,29 +32,6 @@ export const api = new Api({
     }
   });
 
-//INSTANCIA DE SECTION PARA RENDERIZAR LAS CARDS
-const section = new Section(
-  { items: [],
-    renderer: (cardData) => {
-    return createCard(cardData);
-  }
-  },
-  ".cards__list");
-// asi estaba antes esta linea { items: initialCards, renderer: createCard }, cardlistblablabla
-
-
-//esto se supone que es para cargar los datos
-Promise.all([api.getUserInfo(), api.getInitialCards()])
-.then(([userData, cards]) => {
-  userInfo.setUserInfo({
-    name: userData.name,
-    job: userData.about,
-    avatar: userData.avatar
-  })
-  section._items = cards.reverse();
-  section.renderer();
-  })
-  .catch((err) => console.error("Error al cargar datos:", err));
 
 
   //section._items = cards;
@@ -96,11 +65,6 @@ const popupWithForm = new PopupWithForm("#popup-profile", (formData) => {
   .catch(console.error)
 });
 
-/* userInfo.setUserInfo({
-  name: formData.name,
-  job: formData.description
-  }); esto estaba antes en la instancia del popupWithForm*/
-
 popupWithForm.setEventListeners();
 
 //bloque maneja apertura del form.perfil y cambio de datos
@@ -111,4 +75,47 @@ editButton.addEventListener("click",() => {
   profileFormValidator.resetValidation();
 
 });
+
+//instancia de PopupWithConfirmation
+
+const popupWithConfirmation = new PopupWithConfirmation("#popup-delete-confirm");
+popupWithConfirmation.setEventListeners();
+
+
+export function createCard(card) {
+  const newCard = new Card(
+    card.name,
+    card.link,
+    "#card-template",
+    (name, link) => popupWithImage.open(name, link),
+    popupWithConfirmation,
+    api,
+    card._id
+  );
+    //card._id );
+  return newCard.getView();
+}
+
+//INSTANCIA DE SECTION PARA RENDERIZAR LAS CARDS
+const section = new Section(
+  { items: [],
+    renderer: (cardData) => {
+    return createCard(cardData);
+  }
+  },
+  ".cards__list");
+
+ //esto se supone que es para cargar los datos
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+.then(([userData, cards]) => {
+  userInfo.setUserInfo({
+    name: userData.name,
+    job: userData.about,
+    avatar: userData.avatar
+  })
+  section._items = cards.reverse();
+  section.renderer();
+  })
+  .catch((err) => console.error("Error al cargar datos:", err));
+
 
