@@ -90,9 +90,10 @@ export function createCard(card) {
     (name, link) => popupWithImage.open(name, link),
     popupWithConfirmation,
     api,
-    card._id
+    card._id,
+    card.isLiked
   );
-    //card._id );
+
   return newCard.getView();
 }
 
@@ -108,6 +109,7 @@ const section = new Section(
  //esto se supone que es para cargar los datos
 Promise.all([api.getUserInfo(), api.getInitialCards()])
 .then(([userData, cards]) => {
+  //console.log(cards[0]);
   userInfo.setUserInfo({
     name: userData.name,
     job: userData.about,

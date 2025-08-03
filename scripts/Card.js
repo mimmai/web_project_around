@@ -1,5 +1,5 @@
 export default class Card {
-  constructor (name, link, cardSelector, openImagePopup, popupWithConfirmation, api, cardId) {
+  constructor (name, link, cardSelector, openImagePopup, popupWithConfirmation, api, cardId, isLiked) {
   this._name = name;
   this._link = link;
   this._cardSelector = cardSelector;
@@ -7,6 +7,7 @@ export default class Card {
   this._popupWithConfirmation = popupWithConfirmation;
   this._api = api;
   this._cardId = cardId;
+  this._isLiked = isLiked;
 
   this._handleDeleteCard = this._handleDeleteCard.bind(this);
   this._deleteCardFromDom = this._deleteCardFromDom.bind(this);
@@ -41,7 +42,22 @@ export default class Card {
     }
 
     _handleLikeCard() {
-      this._likeButton.classList.toggle("card__like-button-active");
+      //this._likeButton.classList.toggle("card__like-button-active");
+      const wasLiked = this._likeButton.classList.contains("card__like-button-active");
+
+      const toggleLike = wasLiked ? this._api.dislikeCard : this._api.likeCard;
+
+      toggleLike.call(this._api, this._cardId)
+      .then((updatedCard) => {
+        this._isLiked = updatedCard.isLiked;
+
+      if (this._isLiked) {
+        this._likeButton.classList.add("card__like-button-active");
+      } else {
+        this._likeButton.classList.remove("card__like-button-active");
+      }
+    })
+      .catch((err) => console.error("Error al alternar like:", err));
     }
 
     _deleteCardFromDom() {
@@ -63,6 +79,9 @@ export default class Card {
       this._imageCard.alt = this._name;
 
       this._setEventListeners();
+      if(this._isLiked) {
+        this._likeButton.classList.add("card__like-button-active");
+      }
 
       //este return es para obtener la carta al llamar al getView
       return this._element;

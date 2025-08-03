@@ -39,6 +39,10 @@ const titleFullSizeImage = document.querySelector(".popup__title-view-image")
 //respaldo de las initial cards
 const initialCards = [
   {
+    name: "",
+    link: ""
+  }
+  /*{
     name: "Valle de Yosemite",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
   },
@@ -61,7 +65,7 @@ const initialCards = [
   {
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
-  }
+  }*/
 ];
 
 //FUNCIONES DEL FORMULARIO-PERFIL
