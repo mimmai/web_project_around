@@ -2,7 +2,7 @@ import { validationSettings } from "./validate.js";
 import formValidator from "./FormValidator.js";
 import Card from "./Card.js";
 //import { openImagePopup } from "./util.js";
-import { cardList, initialCards, nameTitle, nameSubtitle, editButton, inputName, inputDescription } from "./util.js";
+import { cardList, initialCards, nameTitle, nameSubtitle, editButton, inputName, inputDescription, AvatarForm, inputAvatar } from "./util.js";
 import Section from "./section.js";
 //import Popup from "./Popup.js";
 import PopupWithImage from "./PopupwithImage.js";
@@ -31,11 +31,6 @@ export const api = new Api({
       "Content-Type": "application/json"
     }
   });
-
-
-
-  //section._items = cards;
- // section.renderer() estas dos lineas van en carList.renderItems por que hace la funcion de los dos
 
 //instancia de PopupWithImage
 const popupWithImage = new PopupWithImage("#popup-view-image");
@@ -76,6 +71,23 @@ editButton.addEventListener("click",() => {
 
 });
 
+//ESTO ES LA INSTANCIA DEL AVATAR para cambiar la imagen del perfil
+const avatarPopup = new PopupWithForm("#popup-avatar", (formData) => {
+  api.profileImage({ avatar: formData.avatar })
+    .then((res) => {
+      userInfo.setUserInfo({
+        name: res.name,
+        job: res.about,
+        avatar: res.avatar
+      });
+      avatarPopup.close();
+      console.log("Cerrando popup avatar...");
+    })
+    .catch(console.error);
+})
+
+avatarPopup.setEventListeners();
+
 //instancia de PopupWithConfirmation
 
 const popupWithConfirmation = new PopupWithConfirmation("#popup-delete-confirm");
@@ -109,7 +121,6 @@ const section = new Section(
  //esto se supone que es para cargar los datos
 Promise.all([api.getUserInfo(), api.getInitialCards()])
 .then(([userData, cards]) => {
-  //console.log(cards[0]);
   userInfo.setUserInfo({
     name: userData.name,
     job: userData.about,

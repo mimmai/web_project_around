@@ -46,7 +46,7 @@ position: relative;
 }
 
 .popup__avatar {
-  display: none;
+cursor: pointer;
 }
 /*en flex abre popup de foto-perfil*/
 .popup__close-delete-confirm {
@@ -62,7 +62,10 @@ position: relative;
 }
 
 .popup__close-avatar {
- position: absolute;
+  display: block;
+  position: absolute;
   right: 15px;
   bottom: 250px;
 }
+
+

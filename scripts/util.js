@@ -3,6 +3,7 @@ import { createCard } from "./index.js";
 import PopupWithImage from "./PopupwithImage.js";
 import { api } from "./index.js";
 import Card from "./Card.js";
+import UserInfo from "./UserInfo.js";
 
 const popup = document.querySelector(".popup");
 const editButton = document.querySelector(".profile__edit-button");
@@ -31,10 +32,16 @@ const fullSizeImage = document.querySelector(".popup__full-size-image");
 const closeImageButton = document.querySelector("#close-image-button")
 const titleFullSizeImage = document.querySelector(".popup__title-view-image")
 
-//variables popup delete confirmation
-//const popupDeleteConfirm = document.querySelector("#popup-delete-confirm");
-//const popupCloseDeleteConfirmButton = document.querySelector(".popup__close-delete-confirm")  //boton de la equis
-//const trashButton = document.querySelector(".card__trash-button");
+//variables del formulario perfil-Avatar
+
+const pencilAvatar = document.querySelector(".profile__image-pencil");
+const popupCloseButtonAvatar = document.querySelector (".popup__close-avatar")
+const popupAvatar = document.getElementById("popup-avatar");
+//NUEVOS AGREGADOS PARA FORMULARIO DEL AVATAR
+const AvatarForm = document.querySelector("#form-avatar");
+const inputAvatar = document.querySelector("#input-image");
+
+
 
 //respaldo de las initial cards
 const initialCards = [
@@ -42,30 +49,6 @@ const initialCards = [
     name: "",
     link: ""
   }
-  /*{
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
-  }*/
 ];
 
 //FUNCIONES DEL FORMULARIO-PERFIL
@@ -77,7 +60,6 @@ const profileForm = document.querySelector("#form-profile");
 profileForm.reset();
 resetValidations(validationSettings);
 });
-//profileForm
 
 //FUNCION NEW PLACES
 
@@ -100,24 +82,25 @@ closePlaceFormButton.addEventListener("click", function() {
   resetValidations(validationSettings);
 });
 
-// FUNCTION MODAL CONFIRMATION DELETE
+// FUNCTION MODAL AVATAR
 
-/*function handleOpenPopupDeleteConfirm() {
-  popupDeleteConfirm.classList.add("popup_opened");
-  }
+function handleOpenPopupAvatar() {
+  popupAvatar.showModal();
+}
 
-  function handleClosePopupDeleteConfirm() {
-  popupDeleteConfirm.classList.remove("popup_opened");
-  }
- //aqui va el boton de la papelera
- // trashButton.addEventListener("click", function() {
-  //handleOpenPopupDeleteConfirm();
-//});
+pencilAvatar.addEventListener("click", () => {
+  handleOpenPopupAvatar();
+  console.log("¿Estoy seleccionando el lápiz?", pencilAvatar);
+})
 
-  popupCloseDeleteConfirmButton.addEventListener("click", function() {
-  handleClosePopupDeleteConfirm();
-});*/
+function handleClosePopupAvatar() {
+  popupAvatar.close();
+}
 
+popupCloseButtonAvatar.addEventListener("click", () => {
+  handleClosePopupAvatar();
+  console.log("¿Estoy seleccionando el lápiz?", popupAvatar);
+})
 
 //cierra la tecla escape
 document.addEventListener("keydown", function(evt) {
@@ -172,7 +155,7 @@ addNewCardForm.addEventListener("submit", (evt) => {
   .catch((err) => console.error(err))
 });
 
-//({ name: cardName, link: urlNewCard }); esto estaba en createcard const cardElement
+
 
 popup.addEventListener("click", (evt) => {
   if (evt.target.classList.contains("popup")) {
@@ -197,5 +180,7 @@ export {
   nameSubtitle,
   editButton,
   inputName,
-  inputDescription
+  inputDescription,
+  AvatarForm,
+  inputAvatar
 }

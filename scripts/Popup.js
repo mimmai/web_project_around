@@ -5,12 +5,20 @@ export default class Popup {
   }
 
   open(){
-    this.popupElement.classList.add("popup_opened")
+    if (this.popupElement.tagName === "DIALOG") {
+      this.popupElement.showModal();
+    } else {
+      this.popupElement.classList.add("popup_opened");
+    }
 
   }
 
   close(){
-    this.popupElement.classList.remove("popup_opened")
+    if (this.popupElement.tagName === "DIALOG") {
+      this.popupElement.close();
+    } else {
+      this.popupElement.classList.remove("popup_opened");
+    }
   }
 
   setEventListeners(){
