@@ -169,6 +169,8 @@ height: 120px;
 
 .profile__image-pencil {
 display: block;
+width: 50px;
+height: 50px;
 }
 }
 }
@@ -178,6 +180,8 @@ display: block;
   position: absolute;
   z-index: 2;
   display: none;
+  width: 50px;
+  height: 50px;
 }
 
 .profile__info{

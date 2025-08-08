@@ -26,8 +26,10 @@ position: relative;
 }
 
 .popup__container-places{
-  top: 200px;
+  position: relative;
+  /*top: 200px;*/
   right: 30px;
+
 }
 
 .popup__container-avatar{
@@ -93,7 +95,7 @@ left: 100px;
 }
 .popup__container-places{
 position: relative;
-left: 100px;
+
 }
 
 .popup__container-avatar{
@@ -118,7 +120,6 @@ margin-right: 300px;
 
 .popup__container-places{
 position: relative;
-left: 300px;
 margin-right: 300px;
 }
 
