@@ -15,11 +15,30 @@ align-items: center;
 
 
 .popup__container {
-width: 600px;
+max-width: 600px;
 margin: 30px;
 position: relative;
 }
 
+.popup__container-profile {
+  top: 200px;
+  right: 30px;
+}
+
+.popup__container-places{
+  top: 200px;
+  right: 30px;
+}
+
+.popup__container-avatar{
+  top: 200px;
+  right: 30px;
+}
+
+.popup__container-delete-confirm {
+  top: 200px;
+  right: 30px;
+}
 
 .popup__close-button {
   width: 40px;
@@ -35,7 +54,7 @@ position: relative;
   border-radius: 8px;
 }
 
-/* agregado para la title-tarjeta probando*/
+
 .popup__title-view-image {
   color: white;
   font-family: Inter;
@@ -48,12 +67,10 @@ position: relative;
 .popup__avatar {
 cursor: pointer;
 }
-/*en flex abre popup de foto-perfil*/
+
 .popup__close-delete-confirm {
   display: block;
 }
-
-/*en flex abre popup de confirmacion delete*/
 
 .popup__close-delete-confirm {
   position: absolute;
@@ -68,4 +85,52 @@ cursor: pointer;
   bottom: 250px;
 }
 
+@media screen and (min-width: 700px) {
 
+.popup__container-profile {
+position: relative;
+left: 100px;
+}
+.popup__container-places{
+position: relative;
+left: 100px;
+}
+
+.popup__container-avatar{
+position: relative;
+left: 100px;
+}
+
+.popup__container-delete-confirm {
+position: relative;
+left: 100px;
+}
+}
+
+@media screen and (min-width: 1100px) {
+
+.popup__container-profile {
+
+position: relative;
+left: 300px;
+margin-right: 300px;
+}
+
+.popup__container-places{
+position: relative;
+left: 300px;
+margin-right: 300px;
+}
+
+.popup__container-avatar{
+position: relative;
+left: 300px;
+margin-right: 300px;
+}
+
+.popup__container-delete-confirm {
+position: relative;
+left: 300px;
+margin-right: 300px;
+}
+}
